@@ -24,7 +24,9 @@ function getWordCount(file) {
 function getLineCount(file) {
   return file.split(/\r?\n/).length;
 }
-
+function getFileSizeInBytes(fileName) {
+  return fs.statSync(fileName).size;
+}
 
 module.exports = {
   getFileName,
