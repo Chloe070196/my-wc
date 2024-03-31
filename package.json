@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "my-wc": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
