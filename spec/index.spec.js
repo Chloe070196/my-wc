@@ -18,4 +18,11 @@ describe("wc: ", () => {
   beforeEach(() => {
     file = getFileContentStr("pg132.txt");
   })
+  
+  it("getLineCount returns the number of lines", () => {
+    const result = getLineCount(file);
+    expect(result).not.toBeUndefined();
+    expect(typeof result).toEqual("number");
+    expect(result).toEqual(7147);
+  });
 });
