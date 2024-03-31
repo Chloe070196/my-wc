@@ -18,7 +18,14 @@ describe("wc: ", () => {
   beforeEach(() => {
     file = getFileContentStr("pg132.txt");
   })
-  
+
+  it("getNestedWordArr returns nested arrays containing individual words", () => {
+    const result = getNestedWordArr(file);
+    expect(result).not.toBeUndefined();
+    expect(typeof result).toEqual("object");
+    expect(typeof result[0]).toEqual("object");
+    expect(typeof result[0][0]).not.toBeUndefined();
+  })
   it("getLineCount returns the number of lines", () => {
     const result = getLineCount(file);
     expect(result).not.toBeUndefined();
