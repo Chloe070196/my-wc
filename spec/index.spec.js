@@ -25,4 +25,10 @@ describe("wc: ", () => {
     expect(typeof result).toEqual("number");
     expect(result).toEqual(7147);
   });
+  it("getWordCount returns the number of words", () => {
+    const result = getWordCount(file);
+    expect(result).not.toBeUndefined();
+    expect(typeof result).toEqual("number");
+    expect(result).toEqual(58148);
+  });
 });
