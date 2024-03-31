@@ -3,11 +3,11 @@ const {
   getLineCount,
   getWordCount,
   getNestedWordArr,
+  getFileSizeInBytes,
 } = require("../src/utils");
-// const testFileStr = fs.readFileSync("pg132.txt", "utf8");
 
 describe("wc: ", () => {
-  let file 
+  let file;
   it("getFileContentStr returns the file contents as a string", () => {
     const result = getFileContentStr("pg132.txt");
     expect(result).not.toBeUndefined();
@@ -17,7 +17,7 @@ describe("wc: ", () => {
 
   beforeEach(() => {
     file = getFileContentStr("pg132.txt");
-  })
+  });
 
   it("getNestedWordArr returns nested arrays containing individual words", () => {
     const result = getNestedWordArr(file);
@@ -25,7 +25,7 @@ describe("wc: ", () => {
     expect(typeof result).toEqual("object");
     expect(typeof result[0]).toEqual("object");
     expect(typeof result[0][0]).not.toBeUndefined();
-  })
+  });
   it("getLineCount returns the number of lines", () => {
     const result = getLineCount(file);
     expect(result).not.toBeUndefined();
@@ -37,5 +37,11 @@ describe("wc: ", () => {
     expect(result).not.toBeUndefined();
     expect(typeof result).toEqual("number");
     expect(result).toEqual(58148);
+  });
+  it("returns the number of bytes of a file", () => {
+    const result = getFileSizeInBytes("pg132.txt");
+    expect(result).not.toBeUndefined();
+    expect(typeof result).toEqual("number");
+    expect(result).toEqual(342192);
   });
 });
