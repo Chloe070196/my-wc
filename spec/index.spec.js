@@ -1,13 +1,29 @@
 const {
+  checkInputValidity,
   getFileContentStr,
   getLineCount,
   getWordCount,
   getNestedWordArr,
   getFileSizeInBytes,
-} = require("../bin/utils");
+} = require("../lib/utils");
 
+// notes: only unit test are included here
 describe("wc: ", () => {
   let file;
+
+  describe("checkInputValidity ", () => {
+    it("returns true if the both inputs are valid", () => {
+      const result = checkInputValidity("aFileName", "some very long string");
+      expect(result).not.toBeUndefined();
+      expect(result).toEqual(true);
+    });
+    it("throws an error if either inputs are invalid", () => {
+      expect(() => {checkInputValidity("", "some very long string")}).toThrow(Error("file not found"))
+      expect(() => {checkInputValidity(undefined, "some very long string")}).toThrow(Error("file not found"))
+      expect(() => {checkInputValidity("aFileName", null)}).toThrow(Error("empty file"))
+    });
+  })
+  
   it("getFileContentStr returns the file contents as a string", () => {
     const result = getFileContentStr("pg132.txt");
     expect(result).not.toBeUndefined();
