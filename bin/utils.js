@@ -1,8 +1,5 @@
 const fs = require("fs");
 
-function getFileName() {
-  return process.argv[2];
-}
 function getFileContentStr(fileName) {
   if (fileName) {
     return fs.readFileSync(fileName, "utf8");
@@ -29,7 +26,6 @@ function getFileSizeInBytes(fileName) {
 }
 
 module.exports = {
-  getFileName,
   getFileContentStr,
   getNestedWordArr,
   getWordCount,
