@@ -1,44 +1,17 @@
 #!/usr/bin/env node
+const { Command } = require("commander");
+const program = new Command();
+const wc = require("./main.js");
 
-const {
-  getFileName,
-  getFileContentStr,
-  getNestedWordArr,
-  getWordCount,
-  getLineCount,
-  getFileSizeInBytes
-} = require("./utils.js");
+program
+  .name("my-wc")
+  .option("-l, --lines", "display the number of lines")
+  .option("-w, --words", "display the number of words")
+  .option("-c, --bytes", "display the number of bytes")
+  .description("A command-line wc-like application built with Node.js")
+  .argument("<string>", "file name")
+  .action((file, options) => {
+    wc(file, options);
+  });
 
-function wc() {
-  // access file and file content
-  const fileName = getFileName();
-  const fileContentStr = getFileContentStr(fileName);
-  // get the data
-  if (!fileName) {
-    throw Error("file not found");
-  }
-  if (!fileContentStr) {
-    throw Error("empty file");
-  }
-  const lineCount = getLineCount(fileContentStr);
-  const wordCount = getWordCount(fileContentStr);
-  const fileSizeInBytes = getFileSizeInBytes(fileName);
-  // print to the console
-  console.log(
-    lineCount + " ",
-    wordCount + " ",
-    fileSizeInBytes + " ",
-    fileName
-  );
-}
-
-wc();
-
-module.exports = {
-  wc,
-  getFileName,
-  getFileContentStr,
-  getLineCount,
-  getWordCount,
-  getNestedWordArr,
-};
+program.parse(process.argv);
