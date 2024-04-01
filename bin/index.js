@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const { Command } = require("commander");
 const program = new Command();
-const wc = require("./main.js");
+const wc = require("../lib/main.js");
 
 program
   .name("my-wc")
