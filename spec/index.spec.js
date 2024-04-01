@@ -4,7 +4,7 @@ const {
   getWordCount,
   getNestedWordArr,
   getFileSizeInBytes,
-} = require("../src/utils");
+} = require("../bin/utils");
 
 describe("wc: ", () => {
   let file;

@@ -2,14 +2,16 @@
   "name": "my-wc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bin/index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "jasmine",
-    "my-wc": "node src/index.js"
+    "test": "jasmine"
   },
   "author": "",
   "license": "ISC",
+  "bin": {
+    "my-wc": "./bin/index.js"
+  },
   "dependencies": {
     "jasmine": "^5.1.0"
   }
