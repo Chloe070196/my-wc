@@ -13,6 +13,7 @@
     "my-wc": "./bin/index.js"
   },
   "dependencies": {
+    "commander": "^12.0.0",
     "jasmine": "^5.1.0"
   }
 }
