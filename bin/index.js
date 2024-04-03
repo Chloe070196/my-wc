@@ -9,7 +9,7 @@ program
   .option("-w, --words", "display the number of words")
   .option("-c, --bytes", "display the number of bytes")
   .description("A command-line wc-like application built with Node.js")
-  .argument("<string>", "file name")
+  .argument("<string...>", "file name")
   .action((file, options) => {
     wc(file, options);
   });
