@@ -4,7 +4,7 @@ My solution to this challenge [https://codingchallenges.fyi/challenges/challenge
 
 ## Installation
 
-1. clone this repository onto your manchine
+1. clone this repository onto your machine
 2. run `npm i -g` to install the script globally
 3. to use `my-wc`:
    - `cd <THE FOLDER CONTAINING THE FILE YOU WOULD LIKE INFO ON>`
